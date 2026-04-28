@@ -125,6 +125,24 @@ describe("regras centrais", () => {
     expect(undone.history).toHaveLength(beforeMill.history.length);
   });
 
+  it("undo restaura a peça removida por um moinho", () => {
+    let state = createInitialState();
+    state = applyMoveWithHistory(state, { kind: "place", to: 0 });
+    state = applyMoveWithHistory(state, { kind: "place", to: 9 });
+    state = applyMoveWithHistory(state, { kind: "place", to: 1 });
+    state = applyMoveWithHistory(state, { kind: "place", to: 10 });
+    state = applyMoveWithHistory(state, { kind: "place", to: 2 });
+    state = applyRemoval(state, 9);
+
+    expect(state.board[9]).toBeNull();
+
+    const undone = undoLastCompleteMove(state);
+
+    expect(undone.board[2]).toBeNull();
+    expect(undone.board[9]).toBe("black");
+    expect(undone.board[10]).toBe("black");
+  });
+
   it("aplica movimento adjacente válido", () => {
     const board = emptyBoard();
     board[0] = "white";
