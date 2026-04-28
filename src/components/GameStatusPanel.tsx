@@ -5,6 +5,13 @@ const playerLabel = {
   black: "Pretas",
 };
 
+const phaseLabel = {
+  placing: "Colocação",
+  moving: "Movimento",
+  removing: "Remoção",
+  "game-over": "Fim de jogo",
+};
+
 export function GameStatusPanel() {
   const state = useGameStore((store) => store.state);
   const canUndo = useGameStore((store) => store.state.history.length > 0);
@@ -19,7 +26,7 @@ export function GameStatusPanel() {
         <span>Turno</span>
         <strong>{playerLabel[state.currentPlayer]}</strong>
         <span>Fase</span>
-        <strong>{state.phase}</strong>
+        <strong>{phaseLabel[state.phase]}</strong>
         <span>Peças a colocar</span>
         <strong>
           {state.piecesToPlace.white} / {state.piecesToPlace.black}

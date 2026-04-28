@@ -39,9 +39,7 @@ export function BoardPoint({
         strokeWidth={selected || legal ? 5 : 3}
         onClick={() => !disabled && onClick(position)}
       />
-      <text x={x} y={y + 4} textAnchor="middle" className={occupant === "black" ? "piece-label dark" : "piece-label"}>
-        {position}
-      </text>
+      <circle className="point-hit-area" cx={x} cy={y} r={28} onClick={() => !disabled && onClick(position)} />
     </g>
   );
 }
