@@ -157,6 +157,11 @@ select {
   cursor: not-allowed;
 }
 
+.point-hit-area {
+  fill: transparent;
+  stroke: none;
+}
+
 .point-target {
   fill: rgba(215, 168, 79, 0.1);
   stroke: rgba(248, 239, 225, 0.55);
