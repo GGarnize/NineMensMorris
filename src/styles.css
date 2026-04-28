@@ -157,17 +157,6 @@ select {
   cursor: not-allowed;
 }
 
-.piece-label {
-  font-size: 10px;
-  pointer-events: none;
-  fill: #3b2717;
-  font-weight: 800;
-}
-
-.piece-label.dark {
-  fill: #f8efe1;
-}
-
 .point-target {
   fill: rgba(215, 168, 79, 0.1);
   stroke: rgba(248, 239, 225, 0.55);

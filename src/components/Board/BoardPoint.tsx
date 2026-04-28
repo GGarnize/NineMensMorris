@@ -25,15 +25,15 @@ export function BoardPoint({
 }: BoardPointProps) {
   const legal = legalDestination || legalRemoval;
   const fill =
-    occupant === "white" ? "#f8fafc" : occupant === "black" ? "#111827" : legal ? "#fde68a" : "#c9a15d";
-  const stroke = selected ? "#f59e0b" : legalRemoval ? "#ef4444" : legalDestination ? "#22c55e" : "#55361a";
+    occupant === "white" ? "#f8fafc" : occupant === "black" ? "#111827" : legal ? "#fde68a" : "#332419";
+  const stroke = selected ? "#f59e0b" : legalRemoval ? "#ef4444" : legalDestination ? "#22c55e" : "#d7a84f";
 
   return (
     <g className={disabled ? "board-point disabled" : "board-point"}>
       <circle
         cx={x}
         cy={y}
-        r={occupant ? 19 : 12}
+        r={occupant ? 19 : 8}
         fill={fill}
         stroke={stroke}
         strokeWidth={selected || legal ? 5 : 3}
